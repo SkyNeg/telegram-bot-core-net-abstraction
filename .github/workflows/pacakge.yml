@@ -12,6 +12,7 @@ jobs:
     env:
       BUILD_CONFIG: "Release"
       SOLUTION: "src/SkyNeg.Telegram.Bot.Abstraction.sln"
+      PROJECT: "src/SkyNeg.Telegram.Bot.Abstraction/SkyNeg.Telegram.Bot.Abstraction.csproj"
 
     runs-on: ubuntu-latest
 
@@ -34,7 +35,7 @@ jobs:
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
 
     - name: Pack Nuget
-      run: dotnet pack SkyNeg.Telegram.Bot.Abstraction --configuration $BUILD_CONFIG
+      run: dotnet pack $PROJECT --configuration $BUILD_CONFIG
 
     - name: Publish Nuget to GitHub registry
       run: dotnet nuget push src/SkyNeg.Telegram.Bot.Abstraction/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
