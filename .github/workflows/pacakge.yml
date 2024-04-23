@@ -12,7 +12,6 @@ jobs:
     env:
       BUILD_CONFIG: "Release"
       SOLUTION: "src/SkyNeg.Telegram.Bot.Abstraction.sln"
-      PROJECT: "src/SkyNeg.Telegram.Bot.Abstraction/SkyNeg.Telegram.Bot.Abstraction.csproj"
 
     runs-on: ubuntu-latest
 
